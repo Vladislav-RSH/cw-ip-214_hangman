@@ -1,3 +1,35 @@
+//Standard includes
+#include <iostream>
+#include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+using namespace std;
 
-int main() {}
+//Private includes
+#include "game.h"
+
+//Globals
+
+
+int main() {
+  char restart;
+  srand (time(NULL));
+  Game_shell game;
+  for (;;) {
+    game.init();
+    if (game._quit == true) {
+      break;
+    }
+    for (;;) {
+      game.run();
+      // After game ends, offer chance to replay
+      cout << "Play again? (y/N)";
+      cin >> restart;
+      if(restart != 'y') {
+        break;
+      }
+    }
+  }
+  //Clean up - re-enable echo
+  return 0;
+}
