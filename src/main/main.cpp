@@ -6,8 +6,8 @@
 using namespace std;
 
 //Private includes
-#include "game.h"
-
+#include "../src/lib/game.h"
+#include "../src/lib/term.h"
 //Globals
 
 

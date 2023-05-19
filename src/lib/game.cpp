@@ -8,7 +8,8 @@
 using namespace std;
 
 //Private includes
-#include "game.h"
+#include "../src/lib/game.h"
+#include "../src/lib/term.h"
 
 //Globals
 #define FILELENGTH 1386     // IF words.txt IS EDITTED, THIS VALUE MUST BE UPDATED!!
@@ -168,7 +169,7 @@ void Game_data::genWord() {
   int ranNum = rand() % FILELENGTH;
   int lineNum = 0;
   string line;
-  ifstream wordList("words.txt");
+  ifstream wordList("../src/lib/words.txt");
   while(getline(wordList, line)) {
     ++lineNum;
     if (lineNum == ranNum) {

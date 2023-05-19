@@ -1,4 +1,7 @@
 //Hide terminal inputs
+#include <string>
+
+using namespace std;
 void HideStdinKeystrokes();
 void ShowStdinKeystrokes();
 
@@ -20,14 +23,14 @@ class Game_shell {
     void playerSwitch();
     void playerScore();
     bool _quit;
-  private:
-    int _attempts;
     int _games;
     Player _p1;
     Player _p2;
     Player _guess;
     Player _word;
     bool _multiplayer;
+  private:
+    int _attempts;
 };
 
 
@@ -41,11 +44,11 @@ class Game_data {
     void showAns();
     bool playerGuess();
     bool endGame();
-  private:
     char _guess;
     string _incorrect;
     string _partialSol;
     string _word;
 
     bool multiplayer;
+    
 };
