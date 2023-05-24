@@ -1,31 +1,30 @@
-#include <iostream>
-#include <string>
+#include "term.h"
+
 #include <termios.h>
 #include <unistd.h>
 
-#include "term.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
-void HideStdinKeystrokes()
-{
-    termios tty;
+void HideStdinKeystrokes() {
+  termios tty;
 
-    tcgetattr(STDIN_FILENO, &tty);
+  tcgetattr(STDIN_FILENO, &tty);
 
-    /* we want to disable echo */
-    tty.c_lflag &= ~ECHO;
+  /* we want to disable echo */
+  tty.c_lflag &= ~ECHO;
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+  tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 }
 
-void ShowStdinKeystrokes()
-{
-   termios tty;
+void ShowStdinKeystrokes() {
+  termios tty;
 
-    tcgetattr(STDIN_FILENO, &tty);
+  tcgetattr(STDIN_FILENO, &tty);
 
-    /* we want to reenable echo */
-    tty.c_lflag |= ECHO;
+  /* we want to reenable echo */
+  tty.c_lflag |= ECHO;
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+  tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 }
