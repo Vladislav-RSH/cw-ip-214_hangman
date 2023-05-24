@@ -11,25 +11,26 @@ using namespace std;
 #include "../src/lib/term.h"
 // Globals
 
-int main() {
-  char restart;
-  srand(time(NULL));
-  Game_shell game;
-  for (;;) {
-    game.init();
-    if (game._quit == true) {
-      break;
-    }
+int main()
+{
+    char restart;
+    srand(time(NULL));
+    Game_shell game;
     for (;;) {
-      game.run();
-      // After game ends, offer chance to replay
-      cout << "Play again? (y/N)";
-      cin >> restart;
-      if (restart != 'y') {
-        break;
-      }
+        game.init();
+        if (game._quit == true) {
+            break;
+        }
+        for (;;) {
+            game.run();
+            // After game ends, offer chance to replay
+            cout << "Play again? (y/N)";
+            cin >> restart;
+            if (restart != 'y') {
+                break;
+            }
+        }
     }
-  }
-  // Clean up - re-enable echo
-  return 0;
+    // Clean up - re-enable echo
+    return 0;
 }

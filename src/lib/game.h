@@ -1,4 +1,4 @@
-//Hide terminal inputs
+// Hide terminal inputs
 #include <string>
 
 using namespace std;
@@ -6,16 +6,17 @@ void HideStdinKeystrokes();
 void ShowStdinKeystrokes();
 
 class Player {
-  public:
+public:
     int _score;
     bool _guess;
     bool _active;
     string _name;
 };
 
-/* Main game class - this will start, manage and end the game instance. Data required for the game is stored in the Game_data class. */
+/* Main game class - this will start, manage and end the game instance. Data
+ * required for the game is stored in the Game_data class. */
 class Game_shell {
-  public:
+public:
     Game_shell();
     void init();
     void run();
@@ -29,14 +30,16 @@ class Game_shell {
     Player _guess;
     Player _word;
     bool _multiplayer;
-  private:
+
+private:
     int _attempts;
 };
 
-
-/* Stores all the variables and performs all the logic required for the game. Each instance will be scrapped after each round, allowing for a score system to be eventually implemented */
+/* Stores all the variables and performs all the logic required for the game.
+ * Each instance will be scrapped after each round, allowing for a score system
+ * to be eventually implemented */
 class Game_data {
-  public:
+public:
     Game_data();
     void genWord();
     void addWord(Player guess, Player word);
@@ -50,5 +53,4 @@ class Game_data {
     string _word;
 
     bool multiplayer;
-    
 };

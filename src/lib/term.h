@@ -1,3 +1,3 @@
-//Hide terminal inputs
+// Hide terminal inputs
 void HideStdinKeystrokes();
 void ShowStdinKeystrokes();
