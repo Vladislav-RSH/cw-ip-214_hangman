@@ -32,12 +32,8 @@ $(HANGMAN_TEST_OBJ)ctest.o: $(TEST)ctest.cpp
 	$(CXX) -c -I thirdparty/ $(CFLAGS) -o $@ $^
 $(HANGMAN_TEST_OBJ)main.o: $(TEST)main.cpp
 	$(CXX) -c -I thirdparty/ $(CFLAGS) -o $@ $^
-$(HANGMAN_TEST_OBJ)testlib.a: $(HANGMAN_TEST_OBJ)game.o $(HANGMAN_TEST_OBJ)term.o 
+$(HANGMAN_TEST_OBJ)testlib.a: $(LIBHANGMAN_OBJ)game.o $(LIBHANGMAN_OBJ)term.o 
 	ar rcs $@ $^
-$(HANGMAN_TEST_OBJ)game.o: $(LIBHANGMAN_SRC)game.cpp
-	$(CXX) -c -I thirdparty/ $(CFLAGS) -o $@ $^
-$(HANGMAN_TEST_OBJ)term.o: $(LIBHANGMAN_SRC)term.cpp
-	$(CXX) -c -I thirdparty/ $(CFLAGS) -o $@ $^
 
 .PHONY: clean
 

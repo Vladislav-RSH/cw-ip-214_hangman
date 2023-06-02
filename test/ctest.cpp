@@ -6,78 +6,69 @@
 
 using namespace std;
 
-CTEST(game_shell_constructor_test, initialize_game_1)
-{
-    Game_shell game;
-    ASSERT_FALSE(game._quit);
-    ASSERT_EQUAL(0, game._p1._score);
-    ASSERT_TRUE(game._p1._guess);
+CTEST(game_shell_constructor_test, initialize_game_1) {
+  Game_shell game;
+  ASSERT_FALSE(game.Quit);
+  ASSERT_EQUAL(0, game.P1.Score);
+  ASSERT_TRUE(game.P1.Guess);
 }
 
-CTEST(game_shell_constructor_test, initialize_game_2)
-{
-    Game_shell game;
-    ASSERT_FALSE(game._quit);
-    ASSERT_EQUAL(0, game._p2._score);
-    ASSERT_FALSE(game._p2._guess);
+CTEST(game_shell_constructor_test, initialize_game_2) {
+  Game_shell game;
+  ASSERT_FALSE(game.Quit);
+  ASSERT_EQUAL(0, game.P2.Score);
+  ASSERT_FALSE(game.P2.Guess);
 }
 
-CTEST(game_shell_option_test, option_selected_1)
-{
-    Game_shell game;
-    game.option(1);
-    ASSERT_FALSE(game._multiplayer);
+CTEST(game_shell_option_test, option_selected_1) {
+  Game_shell game;
+  game.option(1);
+  ASSERT_FALSE(game.Multiplayer);
 }
 
-CTEST(game_shell_option_test, option_selected_2)
-{
-    Game_shell game;
-    game.option(2);
-    ASSERT_TRUE(game._multiplayer);
-    ASSERT_TRUE(game._p2._active);
+CTEST(game_shell_option_test, option_selected_2) {
+  Game_shell game;
+  game.option(2);
+  ASSERT_TRUE(game.Multiplayer);
+  ASSERT_TRUE(game.P2.Active);
 }
 
-CTEST(game_shell_option_test, option_selected_3)
-{
-    Game_shell game;
-    game.option(3);
-    ASSERT_FALSE(game._p2._active);
+CTEST(game_shell_option_test, option_selected_3) {
+  Game_shell game;
+  game.option(3);
+  ASSERT_FALSE(game.P2.Active);
 }
 
-CTEST(game_shell_player_switch_test, player_guessing_1)
-{
-    Game_shell game;
-    game.playerSwitch();
-    ASSERT_FALSE(game._p1._guess);
-    ASSERT_TRUE(game._p2._guess);
+CTEST(game_shell_player_switch_test, player_guessing_1) {
+  Game_shell game;
+  game.playerSwitch();
+  ASSERT_FALSE(game.P1.Guess);
+  ASSERT_TRUE(game.P2.Guess);
 }
 
-CTEST(game_shell_player_switch_test, player_guessing_2)
-{
-    Game_shell game;
-    game.playerSwitch();
-    game.playerSwitch();
-    ASSERT_TRUE(game._p1._guess);
-    ASSERT_FALSE(game._p2._guess);
+CTEST(game_shell_player_switch_test, player_guessing_2) {
+  Game_shell game;
+  game.playerSwitch();
+  game.playerSwitch();
+  ASSERT_TRUE(game.P1.Guess);
+  ASSERT_FALSE(game.P2.Guess);
 }
 
-CTEST(game_shell_player_switch_test, scores_updated)
-{
-    Game_shell game;
-    game._p1._score = 5;
-    game._p2._score = 10;
-    game._guess._score = 3;
-    game._word._score = 4;
-    game.playerSwitch();
-    ASSERT_EQUAL(14, game._p2._score);
-    ASSERT_EQUAL(8, game._p1._score);
-    ASSERT_EQUAL(0, game._guess._score);
-    ASSERT_EQUAL(0, game._word._score);
+CTEST(game_shell_player_switch_test, scores_updated) {
+  Game_shell game;
+  game.P1.Score = 5;
+  game.P2.Score = 10;
+  game.Guess.Score = 3;
+  game.Word.Score = 4;
+  game.playerSwitch();
+  ASSERT_EQUAL(14, game.P2.Score);
+  ASSERT_EQUAL(8, game.P1.Score);
+  ASSERT_EQUAL(0, game.Guess.Score);
+  ASSERT_EQUAL(0, game.Word.Score);
 }
 
-CTEST(game_data_genWord_test, generate_word)
-{
-    Game_data game;
-    game.genWord();
-    ASSERT_EQUAL(game._word.size(), game._partialSol.size());
+CTEST(game_data_genWord_test, generate_word) {
+  Game_data game;
+  game.genWord();
+  ASSERT_EQUAL(game.Word.size(), game.PartialSol.size());
 }
