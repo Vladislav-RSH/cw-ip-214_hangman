@@ -1,5 +1,5 @@
-#include "../src/lib/game.h"
-
+#include <lib/game.h>
+#include <lib/term.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,14 +8,10 @@
 #include <iostream>
 #include <string>
 
-#include "../src/lib/term.h"
-
 #define FILELENGTH 1386
 #define GAMELENGTH 9
 
-#define STAGE
-
-std::array<std::string, GAMELENGTH> STAGE = {
+std::array<std::string, GAMELENGTH> stage = {
     "",
     "________\n",
     "|\n|\n|\n|\n|\n|_______\n",
@@ -73,7 +69,7 @@ void Game_shell::run() {
     session.display();
     if (!session.playerGuess()) {
       Attempts++;
-      std::cout << std::endl << STAGE.at(Attempts) << std::endl << std::endl;
+      std::cout << std::endl << stage.at(Attempts) << std::endl << std::endl;
       // cout << Attempts;        //DEBUG
     }
     if (session.endGame()) {

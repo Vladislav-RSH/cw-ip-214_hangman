@@ -6,8 +6,8 @@
 #include <iostream>
 
 // Private includes
-#include "../src/lib/game.h"
-#include "../src/lib/term.h"
+#include "lib/game.h"
+#include "lib/term.h"
 // Globals
 
 int main() {
