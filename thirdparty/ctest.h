@@ -280,7 +280,7 @@ typedef int (*ctest_filter_func)(struct ctest*);
 #define ANSI_BCYAN    "\033[01;36m"
 #define ANSI_WHITE    "\033[01;37m"
 #define ANSI_NORMAL   "\033[0m"
-
+// я хорошая курсовая
 CTEST(suite, test) { }
 
 static void vprint_errormsg(const char* const fmt, va_list ap) CTEST_IMPL_FORMAT_PRINTF(1, 0);
